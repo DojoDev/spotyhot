@@ -1,9 +1,5 @@
-//import API_KEYS from '../keys';
-
-const CLIENT_ID = 'cd1815d12b2a478e98691e881c584208';
-const CLIENT_SECRET = 'fb205c530d79409d966915e0b892bcf9'; // Your secret
-const CLIENT_TOKEN = 'BQBo4FP8--R__vJ7nr5lK5vX2PXZ6aVqI8JCIACROypNixgWpXmi69gLRDop'
-const REDIRECT_URI = 'http://localhost:3000/callback';
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
 let accessToken;
 const Spotify = {
     getAccessToken() {
@@ -16,10 +12,11 @@ const Spotify = {
         const tokenMatch = path.match(/access_token=([^&]*)/);
         const expiresMatch = path.match(/expires_in=([^&]*)/);
 
+        
+
         if(tokenMatch && expiresMatch) {
             accessToken = tokenMatch[1];
             const expiresIn = Number(expiresMatch[1]);
-            //clear token in order to grab new token when current expires
             window.setTimeout(() => accessToken = '', expiresIn * 1000);
             window.history.pushState('Access Token', null, '/');
             return accessToken;
@@ -50,12 +47,15 @@ const Spotify = {
                 }
             })
     },
-    savePlaylist(name, trackURIs) {
+    savePlaylist(name, trackURIs, resCesius) {
         if(!name || !trackURIs.length) {
             return;
         } else {
             const accessToken = Spotify.getAccessToken();
             const headers = { Authorization: `Bearer ${accessToken}` };
+            const valC = resCesius;
+            localStorage.setItem('@temp-value-app/value-c', valC);
+            console.log('Salvo');
             let userId;
 
             return fetch(`https://api.spotify.com/v1/me`, { headers: headers })

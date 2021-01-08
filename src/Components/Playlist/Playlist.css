@@ -20,6 +20,11 @@
     font-size: 1.55rem;
     color: #fff;
 }
+.Slider-temp{
+    color:#fff;
+    cursor:pointer;
+    font-weight: 500;
+}
 
 .Playlist-save {
     cursor: pointer;
