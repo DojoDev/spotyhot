@@ -60,7 +60,7 @@ class Playlist extends React.Component {
                     defaultValue={20}
                     getAriaValueText={valuetext}
                     aria-labelledby="discrete-slider-custom"
-                    step={1}
+                    step={10}
                     valueLabelDisplay="auto"
                     className="Slider-temp"
                     marks={marks}   

@@ -1,6 +1,10 @@
+import axios from 'axios';
+
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
+
 let accessToken;
+
 const Spotify = {
     getAccessToken() {
         if(accessToken) {
@@ -47,6 +51,27 @@ const Spotify = {
                 }
             })
     },
+    listPlaylist(ativ){
+        if(!ativ){
+            return
+        }else{
+            let config = {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                }
+              }
+            axios.get(`https://api.spotify.com/v1/me`, config)
+            .then(res => {
+              const result = res.data;
+              const user_id = result.id;
+              axios.get(`https://api.spotify.com/v1/users/${user_id}/playlists`, config)
+            .then(res => {
+              const result = res.data;
+              console.log(result);
+            })
+            })
+        }
+    },
     savePlaylist(name, trackURIs, resCesius) {
         if(!name || !trackURIs.length) {
             return;
@@ -54,8 +79,11 @@ const Spotify = {
             const accessToken = Spotify.getAccessToken();
             const headers = { Authorization: `Bearer ${accessToken}` };
             const valC = resCesius;
+
             localStorage.setItem('@temp-value-app/value-c', valC);
+
             console.log('Salvo');
+
             let userId;
 
             return fetch(`https://api.spotify.com/v1/me`, { headers: headers })
