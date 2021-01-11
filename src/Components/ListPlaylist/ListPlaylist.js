@@ -9,7 +9,7 @@ class ListPlaylist extends React.Component {
     render() {
         return (
             <div className="ListPlaylist">
-                <button onClick={this.props.onList} className="ListPlaylist-save">Salve Sua ListPlaylist</button>
+                <button onClick={this.props.onList} className="ListPlaylist-save">Listar Playlist</button>
             </div>
         );
     }
