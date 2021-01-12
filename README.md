@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Para instalar o projeto
 Entre no diretório root e rode o comendo:
 
-### `yarn install
+### `yarn install`
 Depois para iniciar a aplicação rode o comando
 
 ### `yarn start`
