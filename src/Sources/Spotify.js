@@ -11,12 +11,9 @@ const Spotify = {
             return accessToken;
         }
 
-        //check for accessToken match if it hasn't been set
         const path = window.location.href
         const tokenMatch = path.match(/access_token=([^&]*)/);
         const expiresMatch = path.match(/expires_in=([^&]*)/);
-
-        
 
         if(tokenMatch && expiresMatch) {
             accessToken = tokenMatch[1];
@@ -78,12 +75,6 @@ const Spotify = {
         } else {
             const accessToken = Spotify.getAccessToken();
             const headers = { Authorization: `Bearer ${accessToken}` };
-            const valC = resCesius;
-
-            localStorage.setItem('@temp-value-app/value-c', valC);
-
-            console.log('Salvo');
-
             let userId;
 
             return fetch(`https://api.spotify.com/v1/me`, { headers: headers })
@@ -98,11 +89,21 @@ const Spotify = {
                         .then(response => response.json())
                         .then(jsonResponse => {
                             const playlistId = jsonResponse.id;
+                            let config = {
+                                playlist: {
+                                    playlistId: playlistId,
+                                    celsius: resCesius
+                                }
+                            }
+
+                            const jsonAux = JSON.stringify(config);
+                            localStorage.setItem('@temp-value-app/value-c', jsonAux);
                             return fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
                                 headers: headers,
                                 method: 'POST',
                                 body: JSON.stringify({ uris: trackURIs})
                             })
+                            
                         });
                 });
         }

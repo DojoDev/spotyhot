@@ -1,7 +1,6 @@
 import React from 'react';
 import './Playlist.css';
 import TrackList from '../TrackList/TrackList';
-import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 
 const marks = [
@@ -28,6 +27,7 @@ function valuetext(value) {
 }
 
 
+
 class Playlist extends React.Component {
     constructor(props) {
         super(props);
@@ -40,8 +40,6 @@ class Playlist extends React.Component {
         this.props.onNameChange(e.target.value);
     }
 
-
-
     handleSliderChange(e, val) {
         
         this.props.onSaveTemp(val);
@@ -52,9 +50,12 @@ class Playlist extends React.Component {
     render() {
         return (
             <div className="Playlist">
-                <Typography id="discrete-slider-custom" gutterBottom>
-                Temperatura Ideal 
-                </Typography>
+                <h3> Nome da Playlist</h3>
+               
+               
+                <input onChange={this.handleNameChange} defaultValue={this.props.playlistName} />
+                <br/>
+                <h3>Temperatura da sua Playlist</h3>
                 <Slider
                     onChange={this.handleSliderChange}
                     defaultValue={20}
@@ -66,8 +67,8 @@ class Playlist extends React.Component {
                     marks={marks}   
                     
                 />
-                <input onChange={this.handleNameChange} defaultValue={this.props.playlistName} />
                 <TrackList isRemoval={true} onRemove={this.props.onRemove} tracks={this.props.playlistTracks} />
+                
                 <button onClick={this.props.onSave} className="Playlist-save">Salve Sua Playlist</button>
             </div>
         );

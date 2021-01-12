@@ -2,10 +2,9 @@ import React from 'react';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import SearchResults from '../../Components/SearchResults/SearchResults';
 import Playlist from '../../Components/Playlist/Playlist';
-import ListPlaylist from '../../Components/ListPlaylist/ListPlaylist';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
-
+import {Link} from 'react-router-dom';
 import Spotify from '../../Sources/Spotify';
 
 
@@ -61,6 +60,7 @@ class CreatePlaylist extends React.Component {
                   resultCesius: 20
               });
           });
+          return <Link to="/" />
   }
 
   search(term) {
@@ -84,7 +84,6 @@ class CreatePlaylist extends React.Component {
             <div className="App-playlist">
               <SearchResults onAdd={this.addTrack} searchResults={this.state.searchResults} />
               <Playlist onSave={this.savePlaylist} onSaveTemp={this.updateTemp} onNameChange={this.updatePlaylistName} onRemove={this.removeTrack} resultCesius={this.state.resultCesius} playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
-              <ListPlaylist onList={this.listPlaylist} />
             </div>
             <Footer />
         </div>

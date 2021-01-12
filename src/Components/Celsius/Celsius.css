@@ -1,0 +1,36 @@
+body{
+    /*background-image: url('./background_photo_hot.jpg');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover ; 
+    */
+   
+}
+.App{
+    margin-top:70px;
+    color:#000;
+    text-align:center;
+    height:600px;
+}
+.App h1{
+    font-size:60px;
+}
+.App h2{
+    font-size:25px;
+}
+.App h3{
+    font-size:20px;
+}
+.ButtonCreate {
+    cursor: pointer;
+    width: 100%;
+    padding: .77rem 0;
+    border-radius: 54px;
+    background-color: #eb770b;
+    text-align: center;
+    font-size: .833rem;
+    transition: background-color .25s;
+    border: 0px;
+    color: #fff;
+    font-weight: 500;
+}

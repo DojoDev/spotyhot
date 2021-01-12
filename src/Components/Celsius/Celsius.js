@@ -1,53 +1,53 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
+import './Celsius.css';
+import axios from 'axios';
+import Player from '../Player/Player';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import {Link} from 'react-router-dom';
 
-const useStyles = makeStyles({
-  root: {
-    minWidth: 275,
-    textAlign: 'center',
-    marginTop:'50px',
-    
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 60,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-});
-
-export default function Celsius() {
-  const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
-
-  return (
-    <Card className={classes.root} variant="outlined">
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          28º C
-        </Typography>
-        <Typography variant="h5" component="h2">
-          Sua Playlist Favorita no Tempo Ideal
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-    </Card>
-  );
+function PlayerShow(){
+  const jsonTarefa = window.localStorage.getItem('@temp-value-app/value-c');
+  if(jsonTarefa == null){
+    return <Button variant="contained" component={Link} to="/create-playlist" color="primary">Criar Playlist</Button>;
+  }else{
+    return <Player />;
+  }
 }
+class Celsius extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tempo: [],
+      cidade: '',
+      estado: ''
+    }
+  }
+  async componentDidMount() {
+    const api = {
+      key: '96a470d3c828105d0062e7df4e46757b',
+      city: 'Campinas',
+      country: 'BR'
+    }
+    axios.get(`http://api.weatherstack.com/current?access_key=${api.key}&query=${api.city},${api.country}`)
+      .then(res => {
+        this.setState({
+          tempo: res.data.current.temperature,
+          cidade: res.data.location.name,
+          estado: res.data.location.region
+        })
+
+      });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>{this.state.tempo}ºC</h1>
+        <h2>{this.state.cidade}/{this.state.estado}</h2>
+        <PlayerShow/>
+      </div>
+    );
+  }
+}
+
+export default Celsius;
