@@ -1,5 +1,5 @@
 import React from 'react';
-import Iframe from 'react-iframe'
+import Iframe from 'react-iframe';
 
 
 function SelectPlaylist() {
@@ -15,7 +15,7 @@ if(celsius >20){
             id="playlistId"
             className="myClassname"
             display="initial"
-            position="bottom"/>
+            position="relative"/>
 }else{
     return <Iframe url={urlId}
             width="100%"
@@ -23,7 +23,7 @@ if(celsius >20){
             id="playlistId"
             className="myClassname"
             display="initial"
-            position="bottom"/>
+            position="relative"/>
 }
 }
 

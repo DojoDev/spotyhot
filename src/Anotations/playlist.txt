@@ -1,3 +1,0 @@
-spotify:playlist:2nheb1JTfl7QiQcfekArYL
-
-<iframe src="https://open.spotify.com/embed/playlist/2nheb1JTfl7QiQcfekArYL" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>

@@ -24,7 +24,7 @@ class Celsius extends React.Component {
   }
   async componentDidMount() {
     const api = {
-      key: '96a470d3c828105d0062e7df4e46757b',
+      key: process.env.REACT_APP_WEATHER_CLIENT_ID,
       city: 'Campinas',
       country: 'BR'
     }
