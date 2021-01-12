@@ -2,14 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Para instalar o projeto
+Entre no diretório root e rode o comendo:
 
-In the project directory, you can run:
+### `yarn install
+Depois para iniciar a aplicação rode o comando
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Após entre digite a url localhost:3000.\
+Para abrir [http://localhost:3000](http://localhost:3000) veja no brouwser logo em seguida.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
