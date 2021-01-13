@@ -1,20 +1,17 @@
 # Spotyhot - Testing for Job
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Para baixar
+Para baixar basta clonar o projeto, com ajuda do git ou baixando o arquivo zip.
 
 ## Para instalar o projeto
 Entre no diretório root e rode o comendo:
 
 ### `yarn install`
 Depois para iniciar a aplicação rode o comando
+
 ## Modo de usar
 Para utilizar o sistema você deve, criar algumas contas e pegar o ID Client de acesso para as API.
-
-## Configurando acesso para API do Spotify
-Para pegar o tolken do spotify, você precisa criar uma conta no De Developer Spotify https://developer.spotify.com/
-Feito isso vá para Dash Board.Login e Click em Create An App.
-Copie seu Client ID e também configure sua Redirect URIs, que fica no menu EDIT SETTINGS.
-Após isso entre na pasta raiz e cole todos esses dados no arquivo .env.local.
 
 ## Configurando o Spotify API
 Para pegar o tolken do spotify, você precisa criar uma conta no De Developer Spotify: https://developer.spotify.com/
@@ -34,10 +31,7 @@ Para abrir [http://localhost:3000](http://localhost:3000) veja no brouwser logo 
 
 ## Para testar
 Para testar rode o comando
-
 ### `yarn test`
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
 ## Sobre o funcionamento
 O sistema é um MVP simples, com objetico de mostrar a playlist mais indicada para o tempo.
