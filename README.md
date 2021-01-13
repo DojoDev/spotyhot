@@ -8,7 +8,6 @@ Para baixar basta clonar o projeto, com ajuda do git ou baixando o arquivo zip.
 Entre no diretório root e rode o comando:
 
 ### `yarn install`
-Depois para iniciar a aplicação rode o comando
 
 ## Modo de usar
 Para utilizar o sistema você deve, criar algumas contas e pegar o ID Client de acesso para as API.
@@ -40,7 +39,7 @@ E se estiver frio ele mostra a Playlist para dias frio.
 
 ## Parte técnica
 Essa aplicação foi feita com React, utilizando Css e Material UI para Interface do usuário.
-Toda playlist é salva no seu perfil criado para utilizar a plataforma.
+Toda playlist é salva no seu perfil Spotify lincado na plataforma.
 Para test foi usado a Library Testing.
-E APi foi usado as APis do Spotify e para tempo a API do Weather Stack.
+E API foi usado Spotify para criar a playlist e para tempo a API do Weather Stack.
 
