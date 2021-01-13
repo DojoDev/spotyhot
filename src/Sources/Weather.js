@@ -1,13 +1,17 @@
 import axios from 'axios';
-const config ={
-    key: '66197a010227b561c6ed71ce47f8707e',
+const api = {
+    key: process.env.REACT_APP_WEATHER_CLIENT_ID,
     city: 'Campinas',
     country: 'BR'
-   
- }
-const api =  
- axios.create({
-     baseURL:`http://api.openweathermap.org/data/2.5/weather?q=${config.city},${config.country}&appid=${config.key}`
- });
+  }
+  axios.get(`http://api.weatherstack.com/current?access_key=${api.key}&query=${api.city},${api.country}`)
+    .then(res => {
+      this.setState({
+        tempo: res.data.current.temperature,
+        cidade: res.data.location.name,
+        estado: res.data.location.region
+      })
+
+    });
 
  export default api;

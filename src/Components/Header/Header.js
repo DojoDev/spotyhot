@@ -17,6 +17,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import PersonIcon from '@material-ui/icons/Person';
 import ExitToApp from '@material-ui/icons/ExitToApp';
+import {Link} from 'react-router-dom';
+
 
 const drawerWidth = 240;
 
@@ -85,6 +87,12 @@ export default function Header() {
     setOpen(true);
   };
 
+  const handleLogout = () =>{
+    console.log("Handle Logout")
+    const url = 'https://www.spotify.com/logout/'                                                                                                                                                                                                                                                                               
+    const spotifyLogoutWindow = window.open(url, 'Spotify Logout', 'width=700,height=500,top=40,left=40')                                                                                                
+    spotifyLogoutWindow.close();
+  }
   const handleDrawerClose = () => {
     setOpen(false);
   };
@@ -129,9 +137,9 @@ export default function Header() {
         </div>
         <Divider />
         <List>
-          {['Perfil', 'Logout'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <PersonIcon /> : <ExitToApp />}</ListItemIcon>
+          {[ 'Sair'].map((text, index) => (
+            <ListItem onClick={handleLogout} button key={text}>
+              <ListItemIcon>{index % 1 === 0 ? <ExitToApp /> : <ExitToApp />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
