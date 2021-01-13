@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Para baixar basta clonar o projeto, com ajuda do git ou baixando o arquivo zip.
 
 ## Para instalar o projeto
-Entre no diretório root e rode o comendo:
+Entre no diretório root e rode o comando:
 
 ### `yarn install`
 Depois para iniciar a aplicação rode o comando
